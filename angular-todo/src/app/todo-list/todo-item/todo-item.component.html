@@ -1,0 +1,27 @@
+<div class="todo-item list-group-item list-group-item-action"  [ngClass]="{'list-group-item-success': todo.completed}">
+  <ng-template #editingTodo>
+    <input
+      type="text"
+      class="todo-item-edit"
+      [(ngModel)]="todo.title"
+      autofocus
+      (blur)="doneEdit(todo)"
+      (keyup.enter)="doneEdit(todo)"
+      (keyup.esc)="cancelEdit(todo)"
+    >
+  </ng-template>
+  <div class="todo-item-wrap d-flex justify-content-between">
+      <span
+        class="title"
+        *ngIf="!todo.editing; else editingTodo"
+        (click)="editTodo(todo)"
+      >
+    {{ todo.title }}
+  </span>
+
+    <div>
+      <input type="checkbox" [(ngModel)]="todo.completed">
+      <button (click)="deleteTodo()" class="delete-todo-btn">&#10008;</button>
+    </div>
+  </div>
+</div>

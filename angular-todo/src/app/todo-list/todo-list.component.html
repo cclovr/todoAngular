@@ -1,0 +1,14 @@
+<div class="container">
+  <h1 class="title">Todo List</h1>
+  <app-add-todo (addTodo)="addToList($event)"></app-add-todo>
+  <div class="list-group">
+    <app-todo-item [todo]="todo"
+                   *ngFor="let todo of todoList;let i = index"
+                   (delete)="onDelete(todo)"
+                   [index]="i"
+
+    ></app-todo-item>
+    <app-done-todo></app-done-todo>
+  </div>
+  <p-toast></p-toast>
+</div>
