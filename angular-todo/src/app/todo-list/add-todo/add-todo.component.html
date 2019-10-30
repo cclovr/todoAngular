@@ -1,2 +1,13 @@
-<input type="text" class="form-control" [(ngModel)]="todoTitle">
-<button class="btn btn-secondary" (click)="addToList($event, todoTitle)">add todo</button>
+<form [formGroup]="form" (ngSubmit)="onSubmit()" class="form">
+  <input
+    type="text" class="form-control"
+    [(ngModel)]="todoTitle"
+    formControlName="name"
+  >
+  <button
+    class="btn btn-secondary"
+    type="submit"
+  >add todo</button>
+</form>
+
+<p-toast *ngIf="isControlInvalid('name')"></p-toast>

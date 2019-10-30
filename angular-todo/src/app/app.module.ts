@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { AutofocusModule } from 'angular-autofocus-fix';
 import { MessageService } from 'primeng/api';
 import { ToastModule } from 'primeng/toast';
@@ -25,9 +25,10 @@ import { MessagesComponent } from './todo-list/messages/messages.component';
   imports: [
     BrowserModule,
     FormsModule,
+    ReactiveFormsModule,
     AutofocusModule,
     ToastModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
   ],
   providers: [MessageService],
   bootstrap: [AppComponent]
